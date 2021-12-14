@@ -80,18 +80,20 @@
 
        <!-- Nav Item - Register -->
        <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="{{ route('register') }}">
           <i class="fas fa-fw fa-table"></i>
           <span>Register</span></a>
       </li>
 
       <!-- Nav Item - Login -->
       <li class="nav-item">
-        <a class="nav-link" href="auth">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Logout</span></a>
+      <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> 
+      <i class="fas fa-fw fa-chart-area"></i>
+      <span>Logout</span></a></a>
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+      </form>
       </li>
-
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 

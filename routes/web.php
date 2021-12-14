@@ -7,6 +7,7 @@ use App\Http\Controllers\RayonController;
 use App\Http\Controllers\PublisherController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\BorrowingController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,9 +29,15 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::resource('students', StudentController::class);
-Route::resource('studentGroups', StudentGroupController::class);
-Route::resource('rayons', RayonController::class);
-Route::resource('publishers', PublisherController::class);
-Route::resource('books', BookController::class);
-Route::resource('borrowings', BorrowingController::class);
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+                ->middleware('auth')
+                ->name('logout');
+                
+Route::group(['middleware' => ['auth']], function () { 
+    Route::resource('students', StudentController::class);
+    Route::resource('studentGroups', StudentGroupController::class);
+    Route::resource('rayons', RayonController::class);
+    Route::resource('publishers', PublisherController::class);
+    Route::resource('books', BookController::class);
+    Route::resource('borrowings', BorrowingController::class);
+});
