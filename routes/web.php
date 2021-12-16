@@ -23,10 +23,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
 require __DIR__.'/auth.php';
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
@@ -34,6 +30,10 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
                 
 Route::group(['middleware' => ['auth']], function () { 
+    Route::get('dashboard', function () {
+        return view('dashboard.index');
+    });
+
     Route::resource('students', StudentController::class);
     Route::resource('studentGroups', StudentGroupController::class);
     Route::resource('rayons', RayonController::class);
