@@ -4,14 +4,8 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="container">
-      <div class="row">
-        <div class="col-lg-12 mt-4">
-          <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-              <h1 class="display-4">Selamat Datang</h1>
-            </div>
-          </div>
-        </div>
+      <div class="welcome">
+        <img src="../img/dsh.jpg" height="305px">
       </div>
       <div class="row">
         <div class="col">
@@ -68,11 +62,5 @@
         </div>
     </div>
     <br>
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
-        
 @endsection
 

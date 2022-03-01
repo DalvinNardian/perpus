@@ -20,9 +20,8 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('page.index');
 });
-
 require __DIR__.'/auth.php';
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])

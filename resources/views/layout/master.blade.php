@@ -78,13 +78,6 @@
         Addons
       </div>
 
-       <!-- Nav Item - Register -->
-       <li class="nav-item">
-        <a class="nav-link" href="{{ route('register') }}">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Register</span></a>
-      </li>
-
       <!-- Nav Item - Login -->
       <li class="nav-item">
       <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> 

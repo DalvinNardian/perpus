@@ -56,7 +56,7 @@ class RayonController extends Controller
      */
     public function show(Rayon $rayon)
     {
-        //
+        return view('rayons.edit',compact('rayon'));
     }
 
     /**
