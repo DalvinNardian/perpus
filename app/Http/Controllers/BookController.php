@@ -29,7 +29,7 @@ class BookController extends Controller
     public function create()
     {
         $publishers = Publisher::all(); 
-        return view('books.create',compact('publishers', $publishers));
+        return view('books.create',compact('publishers'));
     }
 
     /**
