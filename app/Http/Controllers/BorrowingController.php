@@ -32,7 +32,7 @@ class BorrowingController extends Controller
     {
         $books = Book::all();
         $students = Student::all(); 
-        return view('borrowings.create',compact('books', $books, 'students', $students));
+        return view('borrowings.create',compact('books', 'students'));
     }
 
     /**
